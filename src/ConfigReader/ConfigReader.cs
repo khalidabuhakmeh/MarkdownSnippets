@@ -61,10 +61,8 @@
 
     static ConfigSerialization DeSerialize(string contents)
     {
-        using var stream = new MemoryStream(Encoding.UTF8.GetBytes(contents))
-        {
-            Position = 0
-        };
+        using var stream = new MemoryStream(Encoding.UTF8.GetBytes(contents));
+        stream.Position = 0;
         var serializer = new DataContractJsonSerializer(typeof(ConfigSerialization));
         try
         {
